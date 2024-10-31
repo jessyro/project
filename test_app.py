@@ -17,7 +17,11 @@ def test_login(client):
     """בדוק את תהליך הלוגין"""
     response = client.post('/login', data={'username': 'testuser'})
     assert response.status_code == 302  # הפניה לאחר לוגין
+    
+    # בצע בקשה לדף הקלנדר אחרי הלוגין
+    response = client.get('/calendar')
     assert b'Welcome to Your Calendar' in response.data
+
 
 def test_logout(client):
     """בדוק את תהליך הלוג אאוט"""

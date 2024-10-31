@@ -23,4 +23,4 @@ def test_logout(client):
     """בדוק את תהליך הלוג אאוט"""
     client.post('/login', data={'username': 'testuser'})
     response = client.get('/logout')
-    assert response.status_code == 302  # הפניה לאחר לוג אאוט
+    assert response.status_code == 302  #

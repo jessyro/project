@@ -19,7 +19,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.13'  # או גרסה אחרת לפי הצורך
+          python-version: '3.9'  # או גרסה אחרת לפי הצורך
 
       - name: Install dependencies
         run: |

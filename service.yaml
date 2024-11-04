@@ -9,3 +9,5 @@ spec:
     targetPort: 5000
   selector:
     app: my-flask-app
+
+#minikube service my-flask-app-service --url

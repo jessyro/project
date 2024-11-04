@@ -3,10 +3,9 @@ kind: Service
 metadata:
   name: my-flask-app-service
 spec:
-  type: NodePort
+  type: LoadBalancer
   ports:
-    - port: 80
-      targetPort: 5000
-      nodePort: 30000
+  - port: 80
+    targetPort: 5000
   selector:
     app: my-flask-app

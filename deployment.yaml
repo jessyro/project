@@ -1,20 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-flask-app
+  name: flask-app
   namespace: default
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
-      app: my-flask-app
+      app: flask
   template:
     metadata:
       labels:
-        app: my-flask-app
+        app: flask
     spec:
       containers:
-      - name: my-flask-app
-        image: jessy3/my-flask-app:latest
-        ports:
-        - containerPort: 5000
+      - name: flask
+        image: python:3.10-slim
+        env:
+        - name: APP_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: my-secret
+              key: password
+        command: ["sh", "-c", "echo Password is: $APP_PASSWORD && sleep 3600"]
